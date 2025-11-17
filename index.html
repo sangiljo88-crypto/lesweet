@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>爱乐甜 Lesweet - 당은 줄이고 맛은 그대로, 제로칼로리 대체당 B2B 솔루션</title>
+    <title data-lang="title">爱乐甜 Lesweet - 당은 줄이고 맛은 그대로, 제로칼로리 대체당 B2B 솔루션</title>
     <meta name="description" content="설탕을 대체하면서도 설탕다운 맛! 30개국 수출, 10,000개 이상 브랜드 협력. ISO22000/HACCP/HALAL/KOSHER 인증 완료">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -37,10 +37,46 @@
         }
         
         body {
-            font-family: 'Noto Sans KR', sans-serif;
+            font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
             color: var(--text-dark);
             line-height: 1.7;
             overflow-x: hidden;
+        }
+        
+        /* Language Switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--white);
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 5px 20px var(--shadow);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        
+        .lang-btn.active {
+            background: var(--secondary);
+            color: var(--white);
+        }
+        
+        .lang-btn:hover {
+            transform: scale(1.05);
         }
         
         /* Typography */
@@ -88,6 +124,27 @@
             transform: translateY(-3px);
         }
         
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-subtitle {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -102,152 +159,149 @@
         .hero::before {
             content: '';
             position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-            opacity: 0.1;
-            top: -200px;
-            right: -200px;
+            top: -50%;
+            right: -10%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 226, 74, 0.15) 0%, transparent 70%);
             border-radius: 50%;
         }
         
         .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 80px;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
         
         .hero-text h1 {
-            margin-bottom: 24px;
+            margin-bottom: 30px;
         }
         
-        .hero-text .highlight {
-            color: var(--secondary);
-            position: relative;
+        .highlight {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 5px 15px;
+            border-radius: 10px;
             display: inline-block;
         }
         
-        .hero-text .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 12px;
-            background: var(--primary);
-            opacity: 0.5;
-            z-index: -1;
-        }
-        
         .hero-text p {
-            font-size: 1.25rem;
+            margin-bottom: 40px;
             color: var(--text-gray);
-            margin-bottom: 32px;
-            line-height: 1.8;
+            line-height: 1.9;
         }
         
         .hero-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 30px;
             margin: 40px 0;
         }
         
         .stat-item {
             text-align: center;
-            padding: 20px;
+            padding: 30px 20px;
             background: var(--white);
             border-radius: 15px;
-            box-shadow: 0 5px 20px var(--shadow);
+            box-shadow: 0 10px 30px var(--shadow);
         }
         
         .stat-number {
-            font-size: 2rem;
+            display: block;
+            font-size: 2.5rem;
             font-weight: 900;
             color: var(--secondary);
-            display: block;
+            margin-bottom: 10px;
         }
         
         .stat-label {
-            font-size: 0.875rem;
             color: var(--text-gray);
-            margin-top: 8px;
-        }
-        
-        .hero-image {
-            position: relative;
+            font-weight: 500;
         }
         
         .hero-image img {
             width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
         }
         
-        /* Problem Section (P - PASONA) */
+        /* Problem Section */
         .problem {
             padding: 100px 5%;
-            background: var(--secondary);
-            color: var(--white);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-subtitle {
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
+            background: var(--white);
         }
         
         .problem-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
+            gap: 40px;
         }
         
         .problem-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: var(--light-bg);
+            padding: 50px 40px;
             border-radius: 20px;
-            padding: 40px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
         
         .problem-card:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-5px);
+            border-color: var(--primary);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
         
         .problem-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 20px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 24px;
         }
         
         .problem-card h3 {
-            margin-bottom: 16px;
-            color: var(--white);
+            margin-bottom: 20px;
+            color: var(--secondary);
         }
         
         .problem-card p {
+            color: var(--text-gray);
             line-height: 1.8;
-            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+        }
+        
+        .floating-btn {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(255, 226, 74, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 226, 74, 0.6);
         }
         
         /* Affinity Section (A - PASONA) */
@@ -404,39 +458,42 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 24px;
             font-size: 2rem;
             color: var(--secondary);
+            margin: 0 auto 24px;
         }
         
         .offer-card h3 {
-            color: var(--secondary);
             margin-bottom: 16px;
+            color: var(--secondary);
+        }
+        
+        .offer-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
         }
         
         .bonus-section {
-            background: var(--white);
-            padding: 60px 40px;
-            border-radius: 20px;
-            margin-top: 60px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            margin-top: 80px;
         }
         
         .bonus-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 40px;
         }
         
         .bonus-item {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 20px;
         }
         
         .bonus-item i {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--secondary);
         }
         
@@ -445,153 +502,138 @@
             padding: 100px 5%;
             background: var(--secondary);
             color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .narrow::before {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-            opacity: 0.1;
-            bottom: -150px;
-            left: -150px;
         }
         
         .urgency-box {
-            background: rgba(255, 226, 74, 0.1);
-            border: 3px solid var(--primary);
-            padding: 50px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--text-dark);
+            padding: 60px;
+            border-radius: 30px;
             text-align: center;
-            margin-top: 40px;
+            margin: 60px 0;
         }
         
         .urgency-box h3 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
+            font-size: 2rem;
+            margin-bottom: 24px;
         }
         
         .target-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
             margin-top: 60px;
         }
         
         .target-card {
             background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 15px;
-            border-left: 5px solid var(--primary);
+            padding: 50px 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
         }
         
         .target-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
             color: var(--primary);
-            margin-bottom: 16px;
-            font-size: 1.25rem;
         }
         
         /* Testimonials */
         .testimonials {
             padding: 100px 5%;
-            background: var(--light-bg);
+            background: var(--white);
         }
         
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 40px;
-            margin-top: 60px;
         }
         
         .testimonial-card {
-            background: var(--white);
-            padding: 40px;
+            background: var(--light-bg);
+            padding: 50px 40px;
             border-radius: 20px;
             box-shadow: 0 10px 30px var(--shadow);
-            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
         
         .quote-icon {
             font-size: 3rem;
             color: var(--primary);
-            opacity: 0.3;
-            position: absolute;
-            top: 20px;
-            left: 30px;
+            margin-bottom: 20px;
         }
         
         .testimonial-text {
-            margin: 40px 0 30px;
-            font-size: 1.125rem;
+            font-size: 1.1rem;
             line-height: 1.8;
-            color: var(--text-dark);
+            margin-bottom: 30px;
+            font-style: italic;
         }
         
         .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 16px;
-            padding-top: 20px;
-            border-top: 2px solid var(--light-bg);
+            gap: 20px;
         }
         
         .author-avatar {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background: var(--secondary);
+            color: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            font-weight: 700;
+            font-size: 1.5rem;
+            font-weight: 900;
         }
         
         .author-info h4 {
-            font-size: 1rem;
             color: var(--secondary);
+            margin-bottom: 5px;
         }
         
         .author-info p {
-            font-size: 0.875rem;
             color: var(--text-gray);
+            font-size: 0.95rem;
         }
         
         /* Trust Badges */
         .trust {
-            padding: 80px 5%;
-            background: var(--white);
+            padding: 100px 5%;
+            background: var(--light-bg);
         }
         
         .badge-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-            align-items: center;
-            justify-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
         }
         
         .badge {
+            background: var(--white);
+            padding: 40px 20px;
+            border-radius: 20px;
             text-align: center;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .badge:hover {
+            transform: scale(1.05);
         }
         
         .badge-icon {
-            width: 100px;
-            height: 100px;
-            background: var(--light-bg);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px;
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--secondary);
+            margin-bottom: 16px;
         }
         
         .badge-label {
@@ -599,105 +641,43 @@
             color: var(--text-dark);
         }
         
-        /* Final CTA (A - PASONA) */
-        .final-cta {
-            padding: 100px 5%;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
-            color: var(--white);
-            text-align: center;
-        }
-        
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .cta-content h2 {
-            margin-bottom: 24px;
-        }
-        
-        .cta-content p {
-            font-size: 1.25rem;
-            margin-bottom: 40px;
-            opacity: 0.95;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        /* Floating CTA Button */
-        .floating-cta {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-        }
-        
-        .floating-btn {
-            background: var(--primary);
-            color: var(--text-dark);
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
-            box-shadow: 0 10px 30px rgba(255, 226, 74, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-        
-        .floating-btn:hover {
-            transform: scale(1.1);
-        }
-        
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 10px 30px rgba(255, 226, 74, 0.5); }
-            50% { box-shadow: 0 10px 40px rgba(255, 226, 74, 0.8); }
-        }
-        
-        /* FAQ Section */
+        /* FAQ */
         .faq {
             padding: 100px 5%;
-            background: var(--light-bg);
+            background: var(--white);
         }
         
         .faq-grid {
             max-width: 900px;
-            margin: 60px auto 0;
+            margin: 0 auto;
         }
         
         .faq-item {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 15px;
+            background: var(--light-bg);
             margin-bottom: 20px;
-            box-shadow: 0 5px 20px var(--shadow);
+            border-radius: 15px;
+            overflow: hidden;
             cursor: pointer;
             transition: all 0.3s ease;
         }
         
         .faq-item:hover {
-            transform: translateY(-3px);
+            box-shadow: 0 5px 20px var(--shadow);
         }
         
         .faq-question {
+            padding: 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-weight: 600;
-            color: var(--secondary);
             font-size: 1.125rem;
+            color: var(--secondary);
         }
         
         .faq-answer {
-            margin-top: 20px;
+            padding: 0 30px 30px;
+            margin-top: -10px;
             color: var(--text-gray);
             line-height: 1.8;
             display: none;
@@ -713,6 +693,31 @@
         
         .faq-item.active .faq-icon {
             transform: rotate(180deg);
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            padding: 120px 5%;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .cta-content h2 {
+            margin-bottom: 24px;
+        }
+        
+        .cta-content p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         
         /* Footer */
@@ -771,7 +776,8 @@
         /* Responsive */
         @media (max-width: 768px) {
             .hero-content,
-            .story-content {
+            .story-content,
+            .target-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -793,47 +799,64 @@
                 height: 60px;
                 font-size: 1.5rem;
             }
+            
+            .lang-switcher {
+                top: 10px;
+                right: 10px;
+                padding: 8px 15px;
+            }
+            
+            .lang-btn {
+                padding: 6px 15px;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="switchLanguage('ko')" data-lang-btn="ko">한국어</button>
+        <button class="lang-btn" onclick="switchLanguage('zh')" data-lang-btn="zh">中文</button>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text" data-aos="fade-right">
                 <h1>
-                    <span class="highlight">당은 줄이고, 맛은 그대로</span><br>
-                    减糖不减味를 실현하는<br>
-                    제로칼로리 대체당 솔루션
+                    <span class="highlight" data-lang="hero-highlight">당은 줄이고, 맛은 그대로</span><br>
+                    <span data-lang="hero-subtitle">减糖不减味를 실현하는</span><br>
+                    <span data-lang="hero-title">제로칼로리 대체당 솔루션</span>
                 </h1>
                 <p>
-                    설탕 사용량을 <strong>100% 절감</strong>하면서도<br>
-                    소비자가 느끼는 단맛은 <strong>그대로 유지</strong>하는 방법,<br>
-                    爱乐甜 Lesweet과 함께라면 가능합니다.
+                    <span data-lang="hero-desc1">설탕 사용량을</span> <strong><span data-lang="hero-desc2">100% 절감</span></strong><span data-lang="hero-desc3">하면서도</span><br>
+                    <span data-lang="hero-desc4">소비자가 느끼는 단맛은</span> <strong><span data-lang="hero-desc5">그대로 유지</span></strong><span data-lang="hero-desc6">하는 방법,</span><br>
+                    <span data-lang="hero-desc7">爱乐甜 Lesweet과 함께라면 가능합니다.</span>
                 </p>
                 
                 <div class="hero-stats">
                     <div class="stat-item">
                         <span class="stat-number">30+</span>
-                        <span class="stat-label">개국 수출</span>
+                        <span class="stat-label" data-lang="stat-export">개국 수출</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">10,000+</span>
-                        <span class="stat-label">파트너 브랜드</span>
+                        <span class="stat-label" data-lang="stat-partner">파트너 브랜드</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">0kcal</span>
-                        <span class="stat-label">제로칼로리</span>
+                        <span class="stat-label" data-lang="stat-zero">제로칼로리</span>
                     </div>
                 </div>
                 
                 <div style="display: flex; gap: 20px; flex-wrap: wrap;">
                     <a href="#" class="btn-primary" onclick="openTallyForm(); return false;">
-                        <i class="fas fa-paper-plane"></i> 샘플 & 상담 신청
+                        <i class="fas fa-paper-plane"></i> <span data-lang="btn-sample">샘플 & 상담 신청</span>
                     </a>
                     <a href="#solution" class="btn-secondary">
-                        <i class="fas fa-lightbulb"></i> 솔루션 보기
+                        <i class="fas fa-lightbulb"></i> <span data-lang="btn-solution">솔루션 보기</span>
                     </a>
                 </div>
             </div>
@@ -848,27 +871,27 @@
     <section class="problem">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
-                <p class="section-subtitle">이런 고민, 하고 계시지 않나요?</p>
-                <h2>저당·무당 제품 개발,<br>왜 이렇게 어려울까요?</h2>
+                <p class="section-subtitle" data-lang="problem-subtitle">이런 고민, 하고 계시지 않나요?</p>
+                <h2><span data-lang="problem-title1">저당·무당 제품 개발,</span><br><span data-lang="problem-title2">왜 이렇게 어려울까요?</span></h2>
             </div>
             
             <div class="problem-grid">
                 <div class="problem-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="problem-icon"><i class="fas fa-heartbeat"></i></div>
-                    <h3>설탕을 줄이면 맛이 떨어진다</h3>
-                    <p>칼로리·당 함량 규제를 맞추려고 하면, 소비자가 "설탕 제품과 똑같이 맛있다"고 느끼지 못합니다. 기존 레시피를 바꾸면 브랜드 이미지가 훼손될까 두렵습니다.</p>
+                    <h3 data-lang="problem1-title">설탕을 줄이면 맛이 떨어진다</h3>
+                    <p data-lang="problem1-desc">칼로리·당 함량 규제를 맞추려고 하면, 소비자가 "설탕 제품과 똑같이 맛있다"고 느끼지 못합니다. 기존 레시피를 바꾸면 브랜드 이미지가 훼손될까 두렵습니다.</p>
                 </div>
                 
                 <div class="problem-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="problem-icon"><i class="fas fa-cogs"></i></div>
-                    <h3>복잡한 레시피, 원가 관리 부담</h3>
-                    <p>여러 감미료·시럽을 섞어 쓰다 보니 레시피가 복잡하고, 원가 관리도 어렵습니다. 신규 메뉴 개발 때마다 시행착오가 반복됩니다.</p>
+                    <h3 data-lang="problem2-title">복잡한 레시피, 원가 관리 부담</h3>
+                    <p data-lang="problem2-desc">여러 감미료·시럽을 섞어 쓰다 보니 레시피가 복잡하고, 원가 관리도 어렵습니다. 신규 메뉴 개발 때마다 시행착오가 반복됩니다.</p>
                 </div>
                 
                 <div class="problem-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="problem-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>검증된 파트너를 찾기 어렵다</h3>
-                    <p>글로벌 수준의 품질 인증·안정적인 대량 생산·수출 경험이 있는 공급처를 찾기가 쉽지 않습니다. 내가 선택한 원료 때문에 신제품이 실패하면 어쩌나 하는 압박감이 있습니다.</p>
+                    <h3 data-lang="problem3-title">검증된 파트너를 찾기 어렵다</h3>
+                    <p data-lang="problem3-desc">글로벌 수준의 품질 인증·안정적인 대량 생산·수출 경험이 있는 공급처를 찾기가 쉽지 않습니다. 내가 선택한 원료 때문에 신제품이 실패하면 어쩌나 하는 압박감이 있습니다.</p>
                 </div>
             </div>
         </div>
@@ -878,26 +901,26 @@
     <section class="affinity">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
-                <p class="section-subtitle">우리도 그랬습니다</p>
-                <h2>당신의 고민, 충분히 이해합니다</h2>
+                <p class="section-subtitle" data-lang="affinity-subtitle">우리도 그랬습니다</p>
+                <h2 data-lang="affinity-title">당신의 고민, 충분히 이해합니다</h2>
             </div>
             
             <div class="story-content">
                 <div class="story-text" data-aos="fade-right">
                     <blockquote>
-                        "출시 3개월 만에 저당 RTD 음료 라인을 자신 있게 런칭할 수 있었습니다. 
+                        <span data-lang="testimonial1-text">"출시 3개월 만에 저당 RTD 음료 라인을 자신 있게 런칭할 수 있었습니다. 
                         Lesweet 제로칼 시럽을 적용하니 칼로리는 30% 이상 절감되면서도, 
                         설탕 베이스 음료와의 맛 차이가 거의 없었어요. 
-                        소비자 블라인드 테스트에서 87%가 '맛의 차이를 못 느꼈다'고 답했습니다."
-                        <div class="author">- ○○ 음료사 R&D 팀장 (40대, 식품공학 전공)</div>
+                        소비자 블라인드 테스트에서 87%가 '맛의 차이를 못 느꼈다'고 답했습니다."</span>
+                        <div class="author" data-lang="testimonial1-author">- ○○ 음료사 R&D 팀장 (40대, 식품공학 전공)</div>
                     </blockquote>
                     
                     <blockquote>
-                        "Lesweet 시럽 라인 덕분에 매장 메뉴 구성이 단순해졌고, 
+                        <span data-lang="testimonial2-text">"Lesweet 시럽 라인 덕분에 매장 메뉴 구성이 단순해졌고, 
                         바리스타 교육 시간과 레시피 오류가 크게 줄었습니다. 
                         무엇보다 '저당인데 맛있다'는 고객 후기가 늘어나면서 
-                        재방문율이 23% 상승했습니다."
-                        <div class="author">- ○○ 카페 프랜차이즈 상품기획자 (30대, MD)</div>
+                        재방문율이 23% 상승했습니다."</span>
+                        <div class="author" data-lang="testimonial2-author">- ○○ 카페 프랜차이즈 상품기획자 (30대, MD)</div>
                     </blockquote>
                 </div>
                 
@@ -912,61 +935,61 @@
     <section class="solution" id="solution">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
-                <p class="section-subtitle">Lesweet 솔루션</p>
-                <h2>설탕을 대체하면서도<br>설탕다운 맛을 구현하는 3가지 핵심</h2>
+                <p class="section-subtitle" data-lang="solution-subtitle">Lesweet 솔루션</p>
+                <h2><span data-lang="solution-title1">설탕을 대체하면서도</span><br><span data-lang="solution-title2">설탕다운 맛을 구현하는 3가지 핵심</span></h2>
             </div>
             
             <div class="features-grid">
                 <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
                     <div class="feature-number">1</div>
-                    <h3>제로칼로리·저당 설계로<br>맛은 그대로</h3>
-                    <p>천연 유래 감미료(스테비올배당체, 몽크프루트, 폴리올 등)와 기능성 소재 기반으로 0칼로리·저당·저GI를 실현하면서도, 설탕과 유사한 맛 프로파일을 구현합니다.</p>
+                    <h3><span data-lang="feature1-title1">제로칼로리·저당 설계로</span><br><span data-lang="feature1-title2">맛은 그대로</span></h3>
+                    <p data-lang="feature1-desc">천연 유래 감미료(스테비올배당체, 몽크프루트, 폴리올 등)와 기능성 소재 기반으로 0칼로리·저당·저GI를 실현하면서도, 설탕과 유사한 맛 프로파일을 구현합니다.</p>
                     
                     <ul>
-                        <li>설탕 대비 칼로리 최대 100% 절감</li>
-                        <li>당류 함량 0g 또는 30~70% 이상 감축</li>
-                        <li>소비자 블라인드 테스트 만족도 87%</li>
+                        <li data-lang="feature1-point1">설탕 대비 칼로리 최대 100% 절감</li>
+                        <li data-lang="feature1-point2">당류 함량 0g 또는 30~70% 이상 감축</li>
+                        <li data-lang="feature1-point3">소비자 블라인드 테스트 만족도 87%</li>
                     </ul>
                     
                     <div class="evidence-box">
                         <strong>ISO22000 · HACCP · HALAL · KOSHER</strong>
-                        글로벌 수준의 품질 인증 보유
+                        <span data-lang="feature1-cert">글로벌 수준의 품질 인증 보유</span>
                     </div>
                 </div>
                 
                 <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
                     <div class="feature-number">2</div>
-                    <h3>풍미 라이브러리로<br>레시피 단순화</h3>
-                    <p>냉동/상온 과즙, 원맛 시럽, 꽃향·과일향·디저트향·허브 시럽, 제로칼 시럽, 식물추출 감미/풍미 시럽, 상온 과일 소스 등 방대한 라인업으로 원스톱 솔루션 제공.</p>
+                    <h3><span data-lang="feature2-title1">풍미 라이브러리로</span><br><span data-lang="feature2-title2">레시피 단순화</span></h3>
+                    <p data-lang="feature2-desc">냉동/상온 과즙, 원맛 시럽, 꽃향·과일향·디저트향·허브 시럽, 제로칼 시럽, 식물추출 감미/풍미 시럽, 상온 과일 소스 등 방대한 라인업으로 원스톱 솔루션 제공.</p>
                     
                     <ul>
-                        <li>수십 종 이상의 SKU 보유</li>
-                        <li>1L 병(12본/박스) 등 업소용 최적화</li>
-                        <li>기존 "시럽+설탕+향료" 구조 단순화</li>
-                        <li>신메뉴 개발·교육·재고 관리 효율 향상</li>
+                        <li data-lang="feature2-point1">수십 종 이상의 SKU 보유</li>
+                        <li data-lang="feature2-point2">1L 병(12본/박스) 등 업소용 최적화</li>
+                        <li data-lang="feature2-point3">기존 "시럽+설탕+향료" 구조 단순화</li>
+                        <li data-lang="feature2-point4">신메뉴 개발·교육·재고 관리 효율 향상</li>
                     </ul>
                     
                     <div class="evidence-box">
-                        <strong>6대 이상 제품군 운영</strong>
-                        카페·RTD·베이커리·디저트·요거트·HMR 소스까지
+                        <strong><span data-lang="feature2-cert1">6대 이상 제품군 운영</span></strong>
+                        <span data-lang="feature2-cert2">카페·RTD·베이커리·디저트·요거트·HMR 소스까지</span>
                     </div>
                 </div>
                 
                 <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
                     <div class="feature-number">3</div>
-                    <h3>R&D부터 마케팅까지<br>통합 지원</h3>
-                    <p>단순한 "대체당 원료 판매"가 아닌, 신제품 기획 단계부터 레시피/응용 제안, 현지 시장 전략까지 함께 논의하는 진짜 파트너십.</p>
+                    <h3><span data-lang="feature3-title1">R&D부터 마케팅까지</span><br><span data-lang="feature3-title2">통합 지원</span></h3>
+                    <p data-lang="feature3-desc">단순한 "대체당 원료 판매"가 아닌, 신제품 기획 단계부터 레시피/응용 제안, 현지 시장 전략까지 함께 논의하는 진짜 파트너십.</p>
                     
                     <ul>
-                        <li>대규모 자동 생산 라인 & 다양한 패키징 설비</li>
-                        <li>동남아·일본·한국·유럽·중동 등 30+개국 수출</li>
-                        <li>10,000개 이상 매장·브랜드 협력 경험</li>
-                        <li>장기 공급 계약 시 안정적 원료 확보</li>
+                        <li data-lang="feature3-point1">대규모 자동 생산 라인 & 다양한 패키징 설비</li>
+                        <li data-lang="feature3-point2">동남아·일본·한국·유럽·중동 등 30+개국 수출</li>
+                        <li data-lang="feature3-point3">10,000개 이상 매장·브랜드 협력 경험</li>
+                        <li data-lang="feature3-point4">장기 공급 계약 시 안정적 원료 확보</li>
                     </ul>
                     
                     <div class="evidence-box">
-                        <strong>건강한 중국 감당(減糖) 사업 실천 기업</strong>
-                        为全中国14亿人换糖 (중국 14억 인구의 설탕을 바꾼다)
+                        <strong><span data-lang="feature3-cert1">건강한 중국 감당(減糖) 사업 실천 기업</span></strong>
+                        <span data-lang="feature3-cert2">为全中国14亿人换糖 (중국 14억 인구의 설탕을 바꾼다)</span>
                     </div>
                 </div>
             </div>
@@ -977,60 +1000,60 @@
     <section class="offer">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
-                <h2 style="color: var(--text-dark);">지금 Lesweet과 함께하면<br>이런 혜택을 드립니다</h2>
+                <h2 style="color: var(--text-dark);"><span data-lang="offer-title1">지금 Lesweet과 함께하면</span><br><span data-lang="offer-title2">이런 혜택을 드립니다</span></h2>
             </div>
             
             <div class="offer-grid">
                 <div class="offer-card" data-aos="flip-left" data-aos-delay="100">
                     <div class="offer-icon"><i class="fas fa-gift"></i></div>
-                    <h3>무료 샘플 패키지</h3>
-                    <p>첫 상담 신청 기업 대상, 대표 제품 샘플 패키지를 무상으로 제공합니다. 실제 테스트해보고 결정하세요.</p>
+                    <h3 data-lang="offer1-title">무료 샘플 패키지</h3>
+                    <p data-lang="offer1-desc">첫 상담 신청 기업 대상, 대표 제품 샘플 패키지를 무상으로 제공합니다. 실제 테스트해보고 결정하세요.</p>
                 </div>
                 
                 <div class="offer-card" data-aos="flip-left" data-aos-delay="200">
                     <div class="offer-icon"><i class="fas fa-percent"></i></div>
-                    <h3>도입 프로모션 단가</h3>
-                    <p>일정 MOQ 이상 첫 발주 시 도입 프로모션 단가(도매가 할인)를 적용해 드립니다.</p>
+                    <h3 data-lang="offer2-title">도입 프로모션 단가</h3>
+                    <p data-lang="offer2-desc">일정 MOQ 이상 첫 발주 시 도입 프로모션 단가(도매가 할인)를 적용해 드립니다.</p>
                 </div>
                 
                 <div class="offer-card" data-aos="flip-left" data-aos-delay="300">
                     <div class="offer-icon"><i class="fas fa-flask"></i></div>
-                    <h3>R&D 기술 지원</h3>
-                    <p>공동 개발 프로젝트(신제품 Co-Development) 제안 시, 레시피·응용 기술 지원을 무료로 제공합니다.</p>
+                    <h3 data-lang="offer3-title">R&D 기술 지원</h3>
+                    <p data-lang="offer3-desc">공동 개발 프로젝트(신제품 Co-Development) 제안 시, 레시피·응용 기술 지원을 무료로 제공합니다.</p>
                 </div>
                 
                 <div class="offer-card" data-aos="flip-left" data-aos-delay="400">
                     <div class="offer-icon"><i class="fas fa-chart-line"></i></div>
-                    <h3>마케팅 전략 협업</h3>
-                    <p>마케팅팀과 연계한 공동 프로모션, 저당 캠페인, 건강 메시지 스토리텔링을 함께 설계합니다.</p>
+                    <h3 data-lang="offer4-title">마케팅 전략 협업</h3>
+                    <p data-lang="offer4-desc">마케팅팀과 연계한 공동 프로모션, 저당 캠페인, 건강 메시지 스토리텔링을 함께 설계합니다.</p>
                 </div>
             </div>
             
             <div class="bonus-section" data-aos="fade-up">
                 <h3 style="text-align:center; margin-bottom:40px; color: var(--secondary);">
                     <i class="fas fa-star" style="color: var(--primary);"></i> 
-                    추가 특전
+                    <span data-lang="bonus-title">추가 특전</span>
                 </h3>
                 <div class="bonus-grid">
                     <div class="bonus-item">
                         <i class="fas fa-shipping-fast"></i>
                         <div>
-                            <strong>물류비 지원</strong><br>
-                            <span style="color: var(--text-gray); font-size: 0.95rem;">일정 물량 이상 계약 시 물류비 일부/전액 지원 프로모션</span>
+                            <strong data-lang="bonus1-title">물류비 지원</strong><br>
+                            <span style="color: var(--text-gray); font-size: 0.95rem;" data-lang="bonus1-desc">일정 물량 이상 계약 시 물류비 일부/전액 지원 프로모션</span>
                         </div>
                     </div>
                     <div class="bonus-item">
                         <i class="fas fa-certificate"></i>
                         <div>
-                            <strong>글로벌 인증 완비</strong><br>
+                            <strong data-lang="bonus2-title">글로벌 인증 완비</strong><br>
                             <span style="color: var(--text-gray); font-size: 0.95rem;">ISO22000 / HACCP / HALAL / KOSHER</span>
                         </div>
                     </div>
                     <div class="bonus-item">
                         <i class="fas fa-handshake"></i>
                         <div>
-                            <strong>장기 파트너십</strong><br>
-                            <span style="color: var(--text-gray); font-size: 0.95rem;">연간 계약 시 안정적 원료 확보 및 가격 혜택</span>
+                            <strong data-lang="bonus3-title">장기 파트너십</strong><br>
+                            <span style="color: var(--text-gray); font-size: 0.95rem;" data-lang="bonus3-desc">연간 계약 시 안정적 원료 확보 및 가격 혜택</span>
                         </div>
                     </div>
                 </div>
@@ -1042,40 +1065,40 @@
     <section class="narrow">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
-                <h2>샘플·공동개발 프로젝트는<br>분기별 한정 기업만 선정합니다</h2>
+                <h2><span data-lang="narrow-title1">샘플·공동개발 프로젝트는</span><br><span data-lang="narrow-title2">분기별 한정 기업만 선정합니다</span></h2>
                 <p style="font-size:1.125rem; opacity: 0.9; margin-top:20px;">
-                    최고 품질의 솔루션과 맞춤 지원을 제공하기 위해,<br>
-                    분기별/연도별 한정된 기업에만 공동개발 기회를 드립니다.
+                    <span data-lang="narrow-desc1">최고 품질의 솔루션과 맞춤 지원을 제공하기 위해,</span><br>
+                    <span data-lang="narrow-desc2">분기별/연도별 한정된 기업에만 공동개발 기회를 드립니다.</span>
                 </p>
             </div>
             
             <div class="urgency-box" data-aos="zoom-in">
-                <h3><i class="fas fa-clock"></i> 지금 신청하세요</h3>
+                <h3><i class="fas fa-clock"></i> <span data-lang="urgency-title">지금 신청하세요</span></h3>
                 <p style="font-size:1.125rem; margin-bottom:30px;">
-                    특정 원료·풍미는 연간 생산량 한정·시즌 에디션으로 운영됩니다.<br>
-                    선착순 협의 진행 중이니 서둘러 주세요.
+                    <span data-lang="urgency-desc1">특정 원료·풍미는 연간 생산량 한정·시즌 에디션으로 운영됩니다.</span><br>
+                    <span data-lang="urgency-desc2">선착순 협의 진행 중이니 서둘러 주세요.</span>
                 </p>
                 <a href="#" class="btn-primary" onclick="openTallyForm(); return false;" style="font-size:1.25rem; padding: 20px 50px;">
-                    <i class="fas fa-paper-plane"></i> 지금 바로 상담 신청
+                    <i class="fas fa-paper-plane"></i> <span data-lang="urgency-cta">지금 바로 상담 신청</span>
                 </a>
             </div>
             
             <div class="target-grid">
                 <div class="target-card" data-aos="fade-up" data-aos-delay="100">
-                    <h4><i class="fas fa-check-circle"></i> 이런 분들께 추천합니다</h4>
+                    <h4><i class="fas fa-check-circle"></i> <span data-lang="target1-title">이런 분들께 추천합니다</span></h4>
                     <ul style="list-style:none; margin-top:16px; line-height:2;">
-                        <li>✓ 3개월 내 저당·무당 제품 출시 예정인 식품·음료 브랜드</li>
-                        <li>✓ 기존 레시피를 유지하면서 칼로리·당을 줄이고 싶은 기업</li>
-                        <li>✓ 글로벌 수출을 염두에 두고 인증된 원료를 찾는 기업</li>
+                        <li data-lang="target1-point1">✓ 3개월 내 저당·무당 제품 출시 예정인 식품·음료 브랜드</li>
+                        <li data-lang="target1-point2">✓ 기존 레시피를 유지하면서 칼로리·당을 줄이고 싶은 기업</li>
+                        <li data-lang="target1-point3">✓ 글로벌 수출을 염두에 두고 인증된 원료를 찾는 기업</li>
                     </ul>
                 </div>
                 
                 <div class="target-card" data-aos="fade-up" data-aos-delay="200">
-                    <h4><i class="fas fa-user-tie"></i> 담당자 프로필</h4>
+                    <h4><i class="fas fa-user-tie"></i> <span data-lang="target2-title">담당자 프로필</span></h4>
                     <ul style="list-style:none; margin-top:16px; line-height:2;">
-                        <li>✓ 식품·음료 브랜드 상품개발/R&D 담당자</li>
-                        <li>✓ 제과제빵 프랜차이즈 메뉴 개발자</li>
-                        <li>✓ 건강기능식 브랜드 기획자·MD</li>
+                        <li data-lang="target2-point1">✓ 식품·음료 브랜드 상품개발/R&D 담당자</li>
+                        <li data-lang="target2-point2">✓ 제과제빵 프랜차이즈 메뉴 개발자</li>
+                        <li data-lang="target2-point3">✓ 건강기능식 브랜드 기획자·MD</li>
                     </ul>
                 </div>
             </div>
@@ -1086,49 +1109,49 @@
     <section class="testimonials">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
-                <p class="section-subtitle">고객 후기</p>
-                <h2>이미 많은 파트너사가<br>Lesweet과 함께 성공했습니다</h2>
+                <p class="section-subtitle" data-lang="review-subtitle">고객 후기</p>
+                <h2><span data-lang="review-title1">이미 많은 파트너사가</span><br><span data-lang="review-title2">Lesweet과 함께 성공했습니다</span></h2>
             </div>
             
             <div class="testimonial-grid">
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <div class="testimonial-text">
+                    <div class="testimonial-text" data-lang="review1-text">
                         제로칼로리 제품인데도 설탕 베이스 음료와의 맛 차이가 거의 없어 저당 RTD 라인을 자신 있게 런칭할 수 있었습니다. 소비자 반응도 좋고, 재구매율이 높습니다.
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">L</div>
                         <div class="author-info">
-                            <h4>○○ 음료사 R&D 팀장</h4>
-                            <p>40대, 식품공학 전공</p>
+                            <h4 data-lang="review1-name">○○ 음료사 R&D 팀장</h4>
+                            <p data-lang="review1-role">40대, 식품공학 전공</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <div class="testimonial-text">
+                    <div class="testimonial-text" data-lang="review2-text">
                         Lesweet 시럽 라인 덕분에 매장 메뉴 구성이 단순해졌고, 바리스타 교육 시간과 레시피 오류가 크게 줄었습니다. 고객 만족도도 눈에 띄게 올랐어요.
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">C</div>
                         <div class="author-info">
-                            <h4>○○ 카페 프랜차이즈 상품기획자</h4>
-                            <p>30대, MD</p>
+                            <h4 data-lang="review2-name">○○ 카페 프랜차이즈 상품기획자</h4>
+                            <p data-lang="review2-role">30대, MD</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <div class="testimonial-text">
+                    <div class="testimonial-text" data-lang="review3-text">
                         HALAL·KOSHER까지 갖춘 감미료라 해외 수출용 제품 개발에서 인증 리스크를 줄일 수 있었어요. 안정적인 공급과 기술 지원이 큰 도움이 됩니다.
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">H</div>
                         <div class="author-info">
-                            <h4>○○ 건강식품 브랜드 개발팀</h4>
-                            <p>30대, 연구원</p>
+                            <h4 data-lang="review3-name">○○ 건강식품 브랜드 개발팀</h4>
+                            <p data-lang="review3-role">30대, 연구원</p>
                         </div>
                     </div>
                 </div>
@@ -1140,8 +1163,8 @@
     <section class="trust">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
-                <p class="section-subtitle">신뢰와 검증</p>
-                <h2>글로벌 수준의 인증과 실적</h2>
+                <p class="section-subtitle" data-lang="trust-subtitle">신뢰와 검증</p>
+                <h2 data-lang="trust-title">글로벌 수준의 인증과 실적</h2>
             </div>
             
             <div class="badge-grid">
@@ -1163,11 +1186,11 @@
                 </div>
                 <div class="badge" data-aos="zoom-in" data-aos-delay="300">
                     <div class="badge-icon"><i class="fas fa-globe"></i></div>
-                    <div class="badge-label">30+ 개국 수출</div>
+                    <div class="badge-label" data-lang="badge-export">30+ 개국 수출</div>
                 </div>
                 <div class="badge" data-aos="zoom-in" data-aos-delay="350">
                     <div class="badge-icon"><i class="fas fa-store"></i></div>
-                    <div class="badge-label">10,000+ 파트너</div>
+                    <div class="badge-label" data-lang="badge-partner">10,000+ 파트너</div>
                 </div>
             </div>
         </div>
@@ -1177,57 +1200,57 @@
     <section class="faq">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
-                <p class="section-subtitle">자주 묻는 질문</p>
-                <h2>궁금한 점을 해결해드립니다</h2>
+                <p class="section-subtitle" data-lang="faq-subtitle">자주 묻는 질문</p>
+                <h2 data-lang="faq-title">궁금한 점을 해결해드립니다</h2>
             </div>
             
             <div class="faq-grid">
                 <div class="faq-item" data-aos="fade-up">
                     <div class="faq-question">
-                        <span>제로칼로리인데도 설탕과 맛이 비슷한가요?</span>
+                        <span data-lang="faq1-q">제로칼로리인데도 설탕과 맛이 비슷한가요?</span>
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer" data-lang="faq1-a">
                         네, 천연 유래 감미료(스테비올배당체, 몽크프루트 등)와 기능성 소재를 기반으로 설탕과 유사한 맛 프로파일을 구현합니다. 실제 소비자 블라인드 테스트에서 87%가 설탕 제품과의 맛 차이를 느끼지 못했습니다.
                     </div>
                 </div>
                 
                 <div class="faq-item" data-aos="fade-up">
                     <div class="faq-question">
-                        <span>최소 주문 수량(MOQ)이 있나요?</span>
+                        <span data-lang="faq2-q">최소 주문 수량(MOQ)이 있나요?</span>
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer" data-lang="faq2-a">
                         제품군·규격·수출 조건에 따라 MOQ가 다릅니다. 첫 상담 시 무료 샘플 패키지를 제공해 드리며, 본 발주 시 MOQ 및 단가는 개별 협의로 진행됩니다.
                     </div>
                 </div>
                 
                 <div class="faq-item" data-aos="fade-up">
                     <div class="faq-question">
-                        <span>기존 레시피에 바로 적용할 수 있나요?</span>
+                        <span data-lang="faq3-q">기존 레시피에 바로 적용할 수 있나요?</span>
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer" data-lang="faq3-a">
                         네, Lesweet 제품은 음료·베이커리·디저트 등 다양한 응용 분야에 최적화되어 있습니다. R&D팀이 레시피·포뮬레이션 컨설팅을 무료로 제공하여 기존 레시피 전환을 도와드립니다.
                     </div>
                 </div>
                 
                 <div class="faq-item" data-aos="fade-up">
                     <div class="faq-question">
-                        <span>해외 수출용 제품에도 사용 가능한가요?</span>
+                        <span data-lang="faq4-q">해외 수출용 제품에도 사용 가능한가요?</span>
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer" data-lang="faq4-a">
                         네, ISO22000, HACCP, HALAL, KOSHER 등 글로벌 인증을 보유하고 있으며, 이미 동남아·일본·한국·유럽·중동 등 30개국 이상에 수출 중입니다. 인증 리스크를 최소화할 수 있습니다.
                     </div>
                 </div>
                 
                 <div class="faq-item" data-aos="fade-up">
                     <div class="faq-question">
-                        <span>품질 보증 정책은 어떻게 되나요?</span>
+                        <span data-lang="faq5-q">품질 보증 정책은 어떻게 되나요?</span>
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer" data-lang="faq5-a">
                         일정 기간 내 품질·스펙 미충족 시 재생산 또는 대체 공급, 크레딧 제공 정책을 운영하고 있습니다. 구체적인 내용은 계약 시 협의하여 정합니다.
                     </div>
                 </div>
@@ -1238,23 +1261,23 @@
     <!-- Final CTA (A - PASONA) -->
     <section class="final-cta">
         <div class="cta-content" data-aos="zoom-in">
-            <h2>지금 시작하세요.<br>3개월 후, 달라진 제품 라인을 만나보세요.</h2>
+            <h2><span data-lang="cta-title1">지금 시작하세요.</span><br><span data-lang="cta-title2">3개월 후, 달라진 제품 라인을 만나보세요.</span></h2>
             <p>
-                설탕을 줄이면서도 맛은 그대로 유지하는 혁신,<br>
-                爱乐甜 Lesweet과 함께라면 가능합니다.
+                <span data-lang="cta-desc1">설탕을 줄이면서도 맛은 그대로 유지하는 혁신,</span><br>
+                <span data-lang="cta-desc2">爱乐甜 Lesweet과 함께라면 가능합니다.</span>
             </p>
             <div class="cta-buttons">
                 <a href="#" class="btn-primary" onclick="openTallyForm(); return false;" style="background: var(--primary); font-size:1.25rem;">
-                    <i class="fas fa-paper-plane"></i> 무료 샘플 & 상담 신청
+                    <i class="fas fa-paper-plane"></i> <span data-lang="cta-btn1">무료 샘플 & 상담 신청</span>
                 </a>
-                <a href="mailto:biz@lesweet-kr.com" class="btn-secondary" style="border-color: var(--white); color: var(--white);">
-                    <i class="fas fa-envelope"></i> 이메일 문의
+                <a href="mailto:info@lesweet.com" class="btn-secondary" style="border-color: var(--white); color: var(--white);">
+                    <i class="fas fa-envelope"></i> <span data-lang="cta-btn2">이메일 문의</span>
                 </a>
             </div>
             
             <p style="margin-top:40px; font-size:0.95rem; opacity:0.8;">
-                <i class="fas fa-phone"></i> 한국 담당자 연락처 | 
-                <i class="fas fa-clock"></i> 평일 10:00-18:00 (한국 시간)
+                <i class="fas fa-phone"></i> <span data-lang="footer-contact">한국 담당자 연락처</span> | 
+                <i class="fas fa-clock"></i> <span data-lang="footer-hours">평일 10:00-18:00 (한국 시간)</span>
             </p>
         </div>
     </section>
@@ -1265,37 +1288,37 @@
             <div class="footer-section">
                 <div class="footer-logo">爱乐甜 Lesweet</div>
                 <p style="color: rgba(255,255,255,0.8); margin-top:16px;">
-                    当は줄이고 맛은 그대로<br>
-                    减糖不减味를 실현하는<br>
-                    제로칼로리 대체당 전문 솔루션
+                    <span data-lang="footer-tagline1">当は줄이고 맛은 그대로</span><br>
+                    <span data-lang="footer-tagline2">减糖不减味를 실현하는</span><br>
+                    <span data-lang="footer-tagline3">제로칼로리 대체당 전문 솔루션</span>
                 </p>
             </div>
             
             <div class="footer-section">
-                <h4>제품</h4>
+                <h4 data-lang="footer-product-title">제품</h4>
                 <ul>
-                    <li>제로칼로리 대체당</li>
-                    <li>플레이버 시럽 시리즈</li>
-                    <li>냉동/상온 과즙</li>
-                    <li>식물추출 감미 시럽</li>
+                    <li data-lang="footer-product1">제로칼로리 대체당</li>
+                    <li data-lang="footer-product2">플레이버 시럽 시리즈</li>
+                    <li data-lang="footer-product3">냉동/상온 과즙</li>
+                    <li data-lang="footer-product4">식물추출 감미 시럽</li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h4>기업</h4>
+                <h4 data-lang="footer-company-title">기업</h4>
                 <ul>
                     <li>爱乐甜生物科技有限公司</li>
                     <li>Ailotian Biotechnology Co., Ltd.</li>
-                    <li>본사: 중국 광둥성</li>
+                    <li data-lang="footer-hq">본사: 중국 광둥성</li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h4>문의</h4>
+                <h4 data-lang="footer-contact-title">문의</h4>
                 <ul>
-                    <li><i class="fas fa-envelope"></i> biz@lesweet-kr.com</li>
-                    <li><i class="fas fa-globe"></i> lesweetkorea (예정)</li>
-                    <li><i class="fas fa-clock"></i> 평일 10:00-18:00</li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:info@lesweet.com">info@lesweet.com</a></li>
+                    <li><i class="fas fa-globe"></i> <span data-lang="footer-website">lesweetkorea (예정)</span></li>
+                    <li><i class="fas fa-clock"></i> <span data-lang="footer-time">평일 10:00-18:00</span></li>
                 </ul>
             </div>
         </div>
@@ -1318,6 +1341,331 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
     <script>
+        // 번역 데이터
+        const translations = {
+            ko: {
+                'title': '爱乐甜 Lesweet - 당은 줄이고 맛은 그대로, 제로칼로리 대체당 B2B 솔루션',
+                'hero-highlight': '당은 줄이고, 맛은 그대로',
+                'hero-subtitle': '减糖不减味를 실현하는',
+                'hero-title': '제로칼로리 대체당 솔루션',
+                'hero-desc1': '설탕 사용량을',
+                'hero-desc2': '100% 절감',
+                'hero-desc3': '하면서도',
+                'hero-desc4': '소비자가 느끼는 단맛은',
+                'hero-desc5': '그대로 유지',
+                'hero-desc6': '하는 방법,',
+                'hero-desc7': '爱乐甜 Lesweet과 함께라면 가능합니다.',
+                'stat-export': '개국 수출',
+                'stat-partner': '파트너 브랜드',
+                'stat-zero': '제로칼로리',
+                'btn-sample': '샘플 & 상담 신청',
+                'btn-solution': '솔루션 보기',
+                'problem-subtitle': '이런 고민, 하고 계시지 않나요?',
+                'problem-title1': '저당·무당 제품 개발,',
+                'problem-title2': '왜 이렇게 어려울까요?',
+                'problem1-title': '설탕을 줄이면 맛이 떨어진다',
+                'problem1-desc': '칼로리·당 함량 규제를 맞추려고 하면, 소비자가 "설탕 제품과 똑같이 맛있다"고 느끼지 못합니다. 기존 레시피를 바꾸면 브랜드 이미지가 훼손될까 두렵습니다.',
+                'problem2-title': '복잡한 레시피, 원가 관리 부담',
+                'problem2-desc': '여러 감미료·시럽을 섞어 쓰다 보니 레시피가 복잡하고, 원가 관리도 어렵습니다. 신규 메뉴 개발 때마다 시행착오가 반복됩니다.',
+                'problem3-title': '검증된 파트너를 찾기 어렵다',
+                'problem3-desc': '글로벌 수준의 품질 인증·안정적인 대량 생산·수출 경험이 있는 공급처를 찾기가 쉽지 않습니다. 내가 선택한 원료 때문에 신제품이 실패하면 어쩌나 하는 압박감이 있습니다.',
+                'affinity-subtitle': '우리도 그랬습니다',
+                'affinity-title': '당신의 고민, 충분히 이해합니다',
+                'testimonial1-text': '"출시 3개월 만에 저당 RTD 음료 라인을 자신 있게 런칭할 수 있었습니다. Lesweet 제로칼 시럽을 적용하니 칼로리는 30% 이상 절감되면서도, 설탕 베이스 음료와의 맛 차이가 거의 없었어요. 소비자 블라인드 테스트에서 87%가 \'맛의 차이를 못 느꼈다\'고 답했습니다."',
+                'testimonial1-author': '- ○○ 음료사 R&D 팀장 (40대, 식품공학 전공)',
+                'testimonial2-text': '"Lesweet 시럽 라인 덕분에 매장 메뉴 구성이 단순해졌고, 바리스타 교육 시간과 레시피 오류가 크게 줄었습니다. 무엇보다 \'저당인데 맛있다\'는 고객 후기가 늘어나면서 재방문율이 23% 상승했습니다."',
+                'testimonial2-author': '- ○○ 카페 프랜차이즈 상품기획자 (30대, MD)',
+                'solution-subtitle': 'Lesweet 솔루션',
+                'solution-title1': '설탕을 대체하면서도',
+                'solution-title2': '설탕다운 맛을 구현하는 3가지 핵심',
+                'feature1-title1': '제로칼로리·저당 설계로',
+                'feature1-title2': '맛은 그대로',
+                'feature1-desc': '천연 유래 감미료(스테비올배당체, 몽크프루트, 폴리올 등)와 기능성 소재 기반으로 0칼로리·저당·저GI를 실현하면서도, 설탕과 유사한 맛 프로파일을 구현합니다.',
+                'feature1-point1': '설탕 대비 칼로리 최대 100% 절감',
+                'feature1-point2': '당류 함량 0g 또는 30~70% 이상 감축',
+                'feature1-point3': '소비자 블라인드 테스트 만족도 87%',
+                'feature1-cert': '글로벌 수준의 품질 인증 보유',
+                'feature2-title1': '풍미 라이브러리로',
+                'feature2-title2': '레시피 단순화',
+                'feature2-desc': '냉동/상온 과즙, 원맛 시럽, 꽃향·과일향·디저트향·허브 시럽, 제로칼 시럽, 식물추출 감미/풍미 시럽, 상온 과일 소스 등 방대한 라인업으로 원스톱 솔루션 제공.',
+                'feature2-point1': '수십 종 이상의 SKU 보유',
+                'feature2-point2': '1L 병(12본/박스) 등 업소용 최적화',
+                'feature2-point3': '기존 "시럽+설탕+향료" 구조 단순화',
+                'feature2-point4': '신메뉴 개발·교육·재고 관리 효율 향상',
+                'feature2-cert1': '6대 이상 제품군 운영',
+                'feature2-cert2': '카페·RTD·베이커리·디저트·요거트·HMR 소스까지',
+                'feature3-title1': 'R&D부터 마케팅까지',
+                'feature3-title2': '통합 지원',
+                'feature3-desc': '단순한 "대체당 원료 판매"가 아닌, 신제품 기획 단계부터 레시피/응용 제안, 현지 시장 전략까지 함께 논의하는 진짜 파트너십.',
+                'feature3-point1': '대규모 자동 생산 라인 & 다양한 패키징 설비',
+                'feature3-point2': '동남아·일본·한국·유럽·중동 등 30+개국 수출',
+                'feature3-point3': '10,000개 이상 매장·브랜드 협력 경험',
+                'feature3-point4': '장기 공급 계약 시 안정적 원료 확보',
+                'feature3-cert1': '건강한 중국 감당(減糖) 사업 실천 기업',
+                'feature3-cert2': '为全中国14亿人换糖 (중국 14억 인구의 설탕을 바꾼다)',
+                'offer-title1': '지금 Lesweet과 함께하면',
+                'offer-title2': '이런 혜택을 드립니다',
+                'offer1-title': '무료 샘플 패키지',
+                'offer1-desc': '첫 상담 신청 기업 대상, 대표 제품 샘플 패키지를 무상으로 제공합니다. 실제 테스트해보고 결정하세요.',
+                'offer2-title': '도입 프로모션 단가',
+                'offer2-desc': '일정 MOQ 이상 첫 발주 시 도입 프로모션 단가(도매가 할인)를 적용해 드립니다.',
+                'offer3-title': 'R&D 기술 지원',
+                'offer3-desc': '공동 개발 프로젝트(신제품 Co-Development) 제안 시, 레시피·응용 기술 지원을 무료로 제공합니다.',
+                'offer4-title': '마케팅 전략 협업',
+                'offer4-desc': '마케팅팀과 연계한 공동 프로모션, 저당 캠페인, 건강 메시지 스토리텔링을 함께 설계합니다.',
+                'bonus-title': '추가 특전',
+                'bonus1-title': '물류비 지원',
+                'bonus1-desc': '일정 물량 이상 계약 시 물류비 일부/전액 지원 프로모션',
+                'bonus2-title': '글로벌 인증 완비',
+                'bonus3-title': '장기 파트너십',
+                'bonus3-desc': '연간 계약 시 안정적 원료 확보 및 가격 혜택',
+                'narrow-title1': '샘플·공동개발 프로젝트는',
+                'narrow-title2': '분기별 한정 기업만 선정합니다',
+                'narrow-desc1': '최고 품질의 솔루션과 맞춤 지원을 제공하기 위해,',
+                'narrow-desc2': '분기별/연도별 한정된 기업에만 공동개발 기회를 드립니다.',
+                'urgency-title': '지금 신청하세요',
+                'urgency-desc1': '특정 원료·풍미는 연간 생산량 한정·시즌 에디션으로 운영됩니다.',
+                'urgency-desc2': '선착순 협의 진행 중이니 서둘러 주세요.',
+                'urgency-cta': '지금 바로 상담 신청',
+                'target1-title': '이런 분들께 추천합니다',
+                'target1-point1': '✓ 3개월 내 저당·무당 제품 출시 예정인 식품·음료 브랜드',
+                'target1-point2': '✓ 기존 레시피를 유지하면서 칼로리·당을 줄이고 싶은 기업',
+                'target1-point3': '✓ 글로벌 수출을 염두에 두고 인증된 원료를 찾는 기업',
+                'target2-title': '담당자 프로필',
+                'target2-point1': '✓ 식품·음료 브랜드 상품개발/R&D 담당자',
+                'target2-point2': '✓ 제과제빵 프랜차이즈 메뉴 개발자',
+                'target2-point3': '✓ 건강기능식 브랜드 기획자·MD',
+                'review-subtitle': '고객 후기',
+                'review-title1': '이미 많은 파트너사가',
+                'review-title2': 'Lesweet과 함께 성공했습니다',
+                'review1-text': '제로칼로리 제품인데도 설탕 베이스 음료와의 맛 차이가 거의 없어 저당 RTD 라인을 자신 있게 런칭할 수 있었습니다. 소비자 반응도 좋고, 재구매율이 높습니다.',
+                'review1-name': '○○ 음료사 R&D 팀장',
+                'review1-role': '40대, 식품공학 전공',
+                'review2-text': 'Lesweet 시럽 라인 덕분에 매장 메뉴 구성이 단순해졌고, 바리스타 교육 시간과 레시피 오류가 크게 줄었습니다. 고객 만족도도 눈에 띄게 올랐어요.',
+                'review2-name': '○○ 카페 프랜차이즈 상품기획자',
+                'review2-role': '30대, MD',
+                'review3-text': 'HALAL·KOSHER까지 갖춘 감미료라 해외 수출용 제품 개발에서 인증 리스크를 줄일 수 있었어요. 안정적인 공급과 기술 지원이 큰 도움이 됩니다.',
+                'review3-name': '○○ 건강식품 브랜드 개발팀',
+                'review3-role': '30대, 연구원',
+                'trust-subtitle': '신뢰와 검증',
+                'trust-title': '글로벌 수준의 인증과 실적',
+                'badge-export': '30+ 개국 수출',
+                'badge-partner': '10,000+ 파트너',
+                'faq-subtitle': '자주 묻는 질문',
+                'faq-title': '궁금한 점을 해결해드립니다',
+                'faq1-q': '제로칼로리인데도 설탕과 맛이 비슷한가요?',
+                'faq1-a': '네, 천연 유래 감미료(스테비올배당체, 몽크프루트 등)와 기능성 소재를 기반으로 설탕과 유사한 맛 프로파일을 구현합니다. 실제 소비자 블라인드 테스트에서 87%가 설탕 제품과의 맛 차이를 느끼지 못했습니다.',
+                'faq2-q': '최소 주문 수량(MOQ)이 있나요?',
+                'faq2-a': '제품군·규격·수출 조건에 따라 MOQ가 다릅니다. 첫 상담 시 무료 샘플 패키지를 제공해 드리며, 본 발주 시 MOQ 및 단가는 개별 협의로 진행됩니다.',
+                'faq3-q': '기존 레시피에 바로 적용할 수 있나요?',
+                'faq3-a': '네, Lesweet 제품은 음료·베이커리·디저트 등 다양한 응용 분야에 최적화되어 있습니다. R&D팀이 레시피·포뮬레이션 컨설팅을 무료로 제공하여 기존 레시피 전환을 도와드립니다.',
+                'faq4-q': '해외 수출용 제품에도 사용 가능한가요?',
+                'faq4-a': '네, ISO22000, HACCP, HALAL, KOSHER 등 글로벌 인증을 보유하고 있으며, 이미 동남아·일본·한국·유럽·중동 등 30개국 이상에 수출 중입니다. 인증 리스크를 최소화할 수 있습니다.',
+                'faq5-q': '품질 보증 정책은 어떻게 되나요?',
+                'faq5-a': '일정 기간 내 품질·스펙 미충족 시 재생산 또는 대체 공급, 크레딧 제공 정책을 운영하고 있습니다. 구체적인 내용은 계약 시 협의하여 정합니다.',
+                'cta-title1': '지금 시작하세요.',
+                'cta-title2': '3개월 후, 달라진 제품 라인을 만나보세요.',
+                'cta-desc1': '설탕을 줄이면서도 맛은 그대로 유지하는 혁신,',
+                'cta-desc2': '爱乐甜 Lesweet과 함께라면 가능합니다.',
+                'cta-btn1': '무료 샘플 & 상담 신청',
+                'cta-btn2': '이메일 문의',
+                'footer-contact': '한국 담당자 연락처',
+                'footer-hours': '평일 10:00-18:00 (한국 시간)',
+                'footer-tagline1': '당은줄이고 맛은 그대로',
+                'footer-tagline2': '减糖不减味를 실현하는',
+                'footer-tagline3': '제로칼로리 대체당 전문 솔루션',
+                'footer-product-title': '제품',
+                'footer-product1': '제로칼로리 대체당',
+                'footer-product2': '플레이버 시럽 시리즈',
+                'footer-product3': '냉동/상온 과즙',
+                'footer-product4': '식물추출 감미 시럽',
+                'footer-company-title': '기업',
+                'footer-hq': '본사: 중국 광둥성',
+                'footer-contact-title': '문의',
+                'footer-website': 'lesweetkorea (예정)',
+                'footer-time': '평일 10:00-18:00'
+            },
+            zh: {
+                'title': '爱乐甜 Lesweet-减少糖份，保留原味，零卡路里代糖 B2B 解决方案',
+                'hero-highlight': '减少糖份，保留原味',
+                'hero-subtitle': '实现"减糖不减味"的',
+                'hero-title': '零卡路里代糖解决方案',
+                'hero-desc1': '糖使用量',
+                'hero-desc2': '100% 减少',
+                'hero-desc3': '同时',
+                'hero-desc4': '消费者感受到的甜味',
+                'hero-desc5': '保持不变',
+                'hero-desc6': '的方法，',
+                'hero-desc7': '与爱乐甜 Lesweet 合作，即可实现。',
+                'stat-export': '出口国家',
+                'stat-partner': '合作伙伴品牌',
+                'stat-zero': '零卡路里',
+                'btn-sample': '申请样品与咨询',
+                'btn-solution': '查看解决方案',
+                'problem-subtitle': '您是否也有这样的顾虑呢？',
+                'problem-title1': '低糖/无糖产品开发，',
+                'problem-title2': '为何如此困难？',
+                'problem1-title': '减少糖份，味道就变差',
+                'problem1-desc': '想要符合卡路里和糖含量规定，消费者却感觉"不如含糖产品好吃"。又担心改变原有配方会损害品牌形象。',
+                'problem2-title': '配方复杂，成本管理负担重',
+                'problem2-desc': '因混合使用多种甜味剂和糖浆，导致配方复杂，成本管理也困难。每次开发新菜单都要反复试错。',
+                'problem3-title': '难以找到可靠的合作伙伴',
+                'problem3-desc': '难以找到具备全球品质认证、稳定大规模生产及出口经验的供应商。担心因自己选择的原料导致新产品失败，压力巨大。',
+                'affinity-subtitle': '我们也曾如此',
+                'affinity-title': '您的顾虑，我们充分理解',
+                'testimonial1-text': '"仅用 3 个月就得以自信地推出低糖即饮饮料生产线。应用 Lesweet 零卡糖浆后，卡路里减少了 30%以上，但与含糖基础饮料的味道几乎无异。消费者盲测中，87%的参与者回答\'尝不出味道差异\'。"',
+                'testimonial1-author': '某饮料公司研发团队负责人（40 多岁，食品工程专业）',
+                'testimonial2-text': '"得益于 Lesweet 糖浆系列，门店菜单结构得以简化，咖啡师培训时间和配方错误大大减少。最重要的是，\'低糖却好吃\'的顾客好评增多，复购率上升了 23%。"',
+                'testimonial2-author': '某咖啡连锁品牌商品策划（30 多岁，商品经理）',
+                'solution-subtitle': 'Lesweet 解决方案',
+                'solution-title1': '在替代糖的同时',
+                'solution-title2': '实现糖般风味的三大核心',
+                'feature1-title1': '通过零卡路里·低糖设计',
+                'feature1-title2': '味道不变',
+                'feature1-desc': '基于天然来源甜味剂（甜菊糖苷、罗汉果甜苷、多果糖等）和功能性材料，实现 0 卡路里、低糖、低升糖指数，同时呈现与糖相似的风味轮廓。',
+                'feature1-point1': '相比糖，卡路里最高减少 100%',
+                'feature1-point2': '糖含量 0g 或减少 30~70%以上',
+                'feature1-point3': '消费者盲测满意度 87%',
+                'feature1-cert': '拥有全球水准的质量认证',
+                'feature2-title1': '凭借风味库',
+                'feature2-title2': '简化配方',
+                'feature2-desc': '提供冷冻/常温果汁、各种风味糖浆、花香·果香·甜点香·草本糖浆、零卡糖浆、植物提取甜味/风味糖浆、常温果酱等庞大产品线的一站式解决方案。',
+                'feature2-point1': '拥有数十种以上 SKU',
+                'feature2-point2': '1L 瓶（12 瓶/箱）等餐饮渠道优化规格',
+                'feature2-point3': '简化原有"糖浆+糖+香精"结构',
+                'feature2-point4': '提升新菜单开发、培训、库存管理效率',
+                'feature2-cert1': '运营 6 大以上产品群',
+                'feature2-cert2': '涵盖咖啡·即饮饮料·烘焙·甜点·酸奶·HMR 酱料',
+                'feature3-title1': '从研发到营销',
+                'feature3-title2': '全方位支持',
+                'feature3-desc': '并非简单的"代糖原料销售"，而是从新产品规划阶段开始，共同探讨配方/应用方案、当地市场策略的真正合作伙伴关系。',
+                'feature3-point1': '大规模自动生产线及多样化包装设备',
+                'feature3-point2': '出口至东南亚、日本、韩国、欧洲、中东等 30 多个国家',
+                'feature3-point3': '拥有与 10,000 多家门店及品牌的合作经验',
+                'feature3-point4': '签订长期供应协议，确保原料稳定供应',
+                'feature3-cert1': '实践健康中国减糖事业的企业',
+                'feature3-cert2': '为全中国 14 亿人换糖',
+                'offer-title1': '现在与 Lesweet 携手',
+                'offer-title2': '即可享受以下优惠',
+                'offer1-title': '免费样品套装',
+                'offer1-desc': '面向首次咨询申请的企业，免费提供代表产品样品套装。实际测试后再做决定。',
+                'offer2-title': '引进促销单价',
+                'offer2-desc': '首次订购达到一定起订量时，提供引进促销单价（批发价折扣）。',
+                'offer3-title': '研发技术支持',
+                'offer3-desc': '提出共同开发项目（新产品 Co-Development）时，免费提供配方及应用技术支持。',
+                'offer4-title': '市场营销战略协作',
+                'offer4-desc': '联动营销团队，共同设计联合促销、低糖活动、健康信息故事化传播。',
+                'bonus-title': '额外优惠',
+                'bonus1-title': '物流费用支持',
+                'bonus1-desc': '合同量达到一定标准时，提供部分或全额物流费支持的促销活动',
+                'bonus2-title': '具备全球认证',
+                'bonus3-title': '长期合作伙伴关系',
+                'bonus3-desc': '签订年度合约，确保原料稳定供应及享受价格优惠',
+                'narrow-title1': '样品及共同开发项目',
+                'narrow-title2': '仅限每季度甄选部分企业',
+                'narrow-desc1': '为了提供最优质的解决方案和定制化支持，',
+                'narrow-desc2': '仅向每季度/年度限定的企业提供共同开发机会。',
+                'urgency-title': '立即申请吧',
+                'urgency-desc1': '特定原料及风味为年度限量生产及季节限定版。',
+                'urgency-desc2': '正在按申请先后顺序进行洽谈，请尽快行动。',
+                'urgency-cta': '立即申请咨询',
+                'target1-title': '推荐给以下人群',
+                'target1-point1': '√ 计划在 3 个月内推出低糖/无糖产品的食品饮料品牌',
+                'target1-point2': '√ 希望在维持原有配方的同时降低卡路里和糖含量的企业',
+                'target1-point3': '√ 着眼于全球出口，寻找认证原料的企业',
+                'target2-title': '负责人简介',
+                'target2-point1': '√ 食品饮料品牌商品开发/研发负责人',
+                'target2-point2': '√ 烘焙连锁菜单开发者',
+                'target2-point3': '√ 健康功能食品品牌策划人-商品经理',
+                'review-subtitle': '客户评价',
+                'review-title1': '已经有许多合作伙伴',
+                'review-title2': '与 Lesweet 一起取得了成功',
+                'review1-text': '虽然是零卡路里产品，但与含糖基础饮料的味道几乎没差别，因此得以自信地推出低糖即饮饮料生产线。消费者反应良好，复购率也很高。',
+                'review1-name': '某饮料公司研发团队负责人',
+                'review1-role': '40 多岁，食品工程专业',
+                'review2-text': '得益于 Lesweet 糖浆系列，门店菜单结构得以简化，咖啡师培训时间和配方错误大大减少。顾客满意度也显著提升。',
+                'review2-name': '某咖啡连锁品牌商品策划',
+                'review2-role': '30 多岁，商品经理',
+                'review3-text': '因甜味剂具备 HALAL-KOSHER 认证，在开发出口产品时能够降低认证风险。稳定的供应和技术支持帮助很大。',
+                'review3-name': '某健康食品品牌开发团队',
+                'review3-role': '30 多岁，研究员',
+                'trust-subtitle': '信赖与验证',
+                'trust-title': '全球水准的认证与业绩',
+                'badge-export': '出口 30+国',
+                'badge-partner': '10,000+合作伙伴',
+                'faq-subtitle': '常见问题',
+                'faq-title': '为您解答疑问',
+                'faq1-q': '虽然是零卡路里，但味道和糖相似吗？',
+                'faq1-a': '是的，基于天然来源甜味剂（甜菊糖苷、罗汉果甜苷等）和功能性材料，实现了与糖相似的风味轮廓。实际消费者盲测中，87%的人未能尝出与含糖产品的味道差异。',
+                'faq2-q': '有最低起订量吗？',
+                'faq2-a': '根据产品群、规格、出口条件不同，MOQ 各异。首次咨询时提供免费样品套装，正式下单时 MOQ 及单价将进行个别协商。',
+                'faq3-q': '可以直接应用于现有配方吗？',
+                'faq3-a': '是的，Lesweet 产品针对饮料、烘焙、甜点等多种应用领域进行了优化。研发团队免费提供配方和配方应用咨询，帮助您转换现有配方。',
+                'faq4-q': '可以用于出口产品吗？',
+                'faq4-a': '是的，我们拥有 ISO22000、HACCP、HALAL、KOSHER 等全球认证，并且已出口至东南亚、日本、韩国、欧洲、中东等 30 多个国家。可以最小化认证风险。',
+                'faq5-q': '质量保证政策是怎样的？',
+                'faq5-a': '我们实行在一定期限内若质量/规格不达标，则提供重新生产或替代供应、提供积分等政策。具体内容将在签约时协商确定。',
+                'cta-title1': '现在就开始吧。',
+                'cta-title2': '3 个月后，遇见焕然一新的产品线。',
+                'cta-desc1': '减少糖分同时保留原味的创新，',
+                'cta-desc2': '与爱乐甜 Lesweet 合作，即可实现。',
+                'cta-btn1': '申请免费样品与咨询',
+                'cta-btn2': '邮箱咨询',
+                'footer-contact': '韩国负责人联系方式',
+                'footer-hours': '工作日 10:00-18:00 (韩国时间)',
+                'footer-tagline1': '减少糖分，保留原味',
+                'footer-tagline2': '实现"减糖不减味"的',
+                'footer-tagline3': '零卡路里代糖专业解决方案',
+                'footer-product-title': '产品',
+                'footer-product1': '零卡路里代糖',
+                'footer-product2': '全风味糖浆系列',
+                'footer-product3': '冷冻/常温果汁',
+                'footer-product4': '植物提取甜味糖浆',
+                'footer-company-title': '企业',
+                'footer-hq': '总部：中国广东省',
+                'footer-contact-title': '咨询',
+                'footer-website': 'lesweetkorea (预计)',
+                'footer-time': '工作日 10:00-18:00'
+            }
+        };
+
+        // 현재 언어
+        let currentLang = 'ko';
+
+        // 언어 전환 함수
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // 버튼 활성화 상태 변경
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-lang-btn="${lang}"]`).classList.add('active');
+            
+            // 모든 번역 가능한 요소 업데이트
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (translations[lang][key]) {
+                    // HTML 요소 타입에 따라 적절한 속성에 텍스트 설정
+                    if (element.tagName === 'TITLE') {
+                        element.textContent = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+            
+            // 페이지 언어 속성 변경
+            document.documentElement.lang = lang;
+            
+            // 폰트 변경 (중국어일 때 Noto Sans SC 강조)
+            if (lang === 'zh') {
+                document.body.style.fontFamily = "'Noto Sans SC', 'Noto Sans KR', sans-serif";
+            } else {
+                document.body.style.fontFamily = "'Noto Sans KR', 'Noto Sans SC', sans-serif";
+            }
+        }
+
         // AOS 초기화
         AOS.init({
             duration: 1000,
@@ -1370,14 +1718,6 @@
             // 실제 구현 시 위 alert를 제거하고 아래 코드를 사용하세요:
             // window.open('https://tally.so/r/your-form-id', '_blank');
         }
-        
-        // 스크롤 시 헤더 효과 (옵션)
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            // 필요시 헤더 숨김/표시 로직 추가 가능
-            lastScroll = currentScroll;
-        });
     </script>
 </body>
 </html>
